@@ -4,9 +4,11 @@ const nets = require('nets')
 const pump = require('pump')
 const fs = require('fs')
 
+// demo code for the scraper
 const vineUrl = 'https://vine.co/v/e2QalQxOA1K'
 const ws = fs.createWriteStream('backpain.mp4')
-pump(vineScrape(vineUrl), ws, function (err) {
+const rs = vineScrape(vineUrl)
+pump(rs, ws, function (err) {
   if (err) throw err
   process.stdout.write('succes!')
 })
